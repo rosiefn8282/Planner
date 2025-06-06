@@ -29,9 +29,6 @@ def index():
 def show_schedule():
     return render_template('schedule.html')
 
-        best_schedule, score = run_genetic_algorithm()
-        save_schedule_excel(best_schedule)
-        save_schedule_pdf(best_schedule)
 
         return render_template('index.html', schedule=best_schedule, score=score)
 
