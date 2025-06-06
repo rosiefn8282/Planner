@@ -13,14 +13,6 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
 
-@app.route('/')
-def home():
-    return "صفحه اصلی"
-
-@app.route('/schedule')
-def show_schedule():
-    return render_template('schedule.html')
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     schedule = None
@@ -32,7 +24,10 @@ def index():
         if file.filename == '' or not allowed_file(file.filename):
             return "فایل نامعتبر است.", 400
         filename = secure_filename("input_data.xlsx")
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))    
+@app.route('/schedule')
+def show_schedule():
+    return render_template('schedule.html')
 
         best_schedule, score = run_genetic_algorithm()
         save_schedule_excel(best_schedule)
