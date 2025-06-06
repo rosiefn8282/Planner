@@ -29,11 +29,6 @@ def index():
 def show_schedule():
     return render_template('schedule.html')
 
-
-        return render_template('index.html', schedule=best_schedule, score=score)
-
-    return render_template('index.html', schedule=schedule, score=score)
-
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
