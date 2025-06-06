@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>بارگذاری فایل اکسل برنامه‌ریزی</title>
+    <style>
+        body { font-family: sans-serif; direction: rtl; text-align: center; margin-top: 50px; }
+        input[type=file], input[type=submit] { margin: 10px; padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h2>بارگذاری فایل اکسل برنامه درسی</h2>
+    <form method="POST" action="/schedule" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".xlsx" required><br>
+        <input type="submit" value="ارسال فایل">
+    </form>
+</body>
+</html>
