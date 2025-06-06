@@ -12,6 +12,15 @@ app.config['ALLOWED_EXTENSIONS'] = {'xlsx'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
+
+@app.route('/')
+def home():
+    return "صفحه اصلی"
+
+@app.route('/schedule')
+def show_schedule():
+    return render_template('schedule.html')
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     schedule = None
